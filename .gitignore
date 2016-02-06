@@ -1,0 +1,8 @@
+# Yii2
+
+# IDE
+/.idea
+
+# Composer vendors
+/vendor/
+composer.lock

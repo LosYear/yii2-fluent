@@ -1,0 +1,31 @@
+{
+    "name": "losyear/yii2-fluent",
+    "description": "Yii2 Fluent CMS core module",
+    "type": "yii2-extension",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Losev Yaroslav",
+            "email": "losevyaroslav@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": ">=2.0.5",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "yii\\fluent\\": ""
+        }
+    },
+
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
