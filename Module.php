@@ -2,6 +2,7 @@
 
 namespace yii\fluent;
 
+use Yii;
 use yii\base\BootstrapInterface;
 
 /**
@@ -26,6 +27,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
 
     public function bootstrap($app)
     {
-
+        // Set @fluent alias
+        Yii::setAlias('fluent', '@vendor/losyear/yii2-fluent');
     }
 }
