@@ -9,7 +9,7 @@
 
             'i18n' => [
                 'translations' => [
-                    'fluent*' => [
+                    'fluent/*' => [
                         'sourceLanguage' => 'en-US',
                         'basePath' => '@fluent/messages',
                         'class' => 'yii\i18n\PhpMessageSource',
@@ -18,6 +18,12 @@
                         ]
                     ]
                 ]
+            ]
+        ],
+
+        'modules' => [
+            'admin' => [
+                'class' => 'yii\fluent\modules\admin\Module'
             ]
         ]
     ];

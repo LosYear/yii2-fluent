@@ -36,6 +36,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             [['email', 'password_hash'], 'required'],
             [['is_root'], 'integer'],
+            [['email'], 'email'],
             [['created_at', 'last_login_at'], 'safe'],
             [['email', 'password_hash'], 'string', 'max' => 200],
             [['email'], 'unique'],
@@ -50,7 +51,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'id' => '#',
             'email' => Yii::t('fluent/user', 'Email'),
-            'password_hash' => Yii::t('fluent/user', 'Password Hash'),
+            'password_hash' => Yii::t('fluent/user', 'Password'),
             'is_root' => Yii::t('fluent/user', 'Is Administrator'),
             'created_at' => Yii::t('fluent/user', 'Signed up at'),
             'last_login_at' => Yii::t('fluent/user', 'Last Login at'),
@@ -149,6 +150,9 @@ class User extends ActiveRecord implements IdentityInterface
             }
             return true;
         }
+
+        $this->setPasswordHash($this->password_hash);
+
         return false;
     }
 
