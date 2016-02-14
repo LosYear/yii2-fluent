@@ -14,7 +14,8 @@
                         'basePath' => '@fluent/messages',
                         'class' => 'yii\i18n\PhpMessageSource',
                         'fileMap' => [
-                            'fluent/user' => 'user.php'
+                            'fluent/user' => 'user.php',
+                            'fluent/models' => 'models.php'
                         ]
                     ]
                 ]

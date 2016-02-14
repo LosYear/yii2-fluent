@@ -3,10 +3,18 @@
     "description": "Yii2 Fluent CMS core module",
     "type": "yii2-extension",
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Losev Yaroslav",
             "email": "losevyaroslav@gmail.com"
+        }
+    ],
+
+    "repositories" : [
+        {
+            "type": "vcs",
+            "url": "https://github.com/iutbay/yii2-kcfinder"
         }
     ],
     "require": {
@@ -14,7 +22,9 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "rmrevin/yii2-fontawesome": "~2.12"
+        "rmrevin/yii2-fontawesome": "~2.12",
+        "2amigos/yii2-ckeditor-widget": "~1.0",
+        "iutbay/yii2-kcfinder": "*"
     },
 
     "autoload": {

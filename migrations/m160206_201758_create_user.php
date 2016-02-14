@@ -20,6 +20,6 @@ class m160206_201758_create_user extends Migration
 
     public function down()
     {
-        $this->dropTable('fluent_user');
+        $this->dropTable(User::tableName());
     }
 }

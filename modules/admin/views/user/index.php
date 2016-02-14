@@ -38,5 +38,3 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::end(); ?>
     </div>
 </div>
-
-<?php \yii\grid\GridViewAsset::register($this); ?>
