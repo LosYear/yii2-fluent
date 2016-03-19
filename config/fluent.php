@@ -7,6 +7,14 @@
                 'loginUrl' => ['fluent/user/login']
             ],
 
+            'urlManager' => [
+                'rules' => [
+                    [
+                        'class' => 'yii\fluent\components\PagesRule',
+                    ]
+                ],
+            ],
+
             'i18n' => [
                 'translations' => [
                     'fluent/*' => [

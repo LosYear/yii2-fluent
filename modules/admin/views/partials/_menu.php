@@ -5,6 +5,7 @@ use yii\fluent\modules\admin\Module;
 $items = [
     ['label' => strtoupper(Module::t('main', 'General')), 'options' => ['class' => 'header']],
     ['label' => Module::t('main', 'Dashboard'), 'icon' => 'fa  fa-tachometer', 'url' => ['dashboard/index']],
+    ['label' => Module::t('main', 'Pages'), 'icon' => 'fa fa-file-text', 'url' => ['page/index']],
     ['label' => Module::t('main', 'Users'), 'icon' => 'fa fa-users', 'url' => ['user/index']],
     ['label' => Module::t('main', 'Blocks'), 'icon' => 'fa fa-th-large', 'url' => ['block/index']],
 ];
