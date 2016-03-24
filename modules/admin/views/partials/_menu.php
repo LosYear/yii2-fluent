@@ -8,6 +8,7 @@ $items = [
     ['label' => Module::t('main', 'Pages'), 'icon' => 'fa fa-file-text', 'url' => ['page/index']],
     ['label' => Module::t('main', 'Users'), 'icon' => 'fa fa-users', 'url' => ['user/index']],
     ['label' => Module::t('main', 'Blocks'), 'icon' => 'fa fa-th-large', 'url' => ['block/index']],
+    ['label' => Module::t('main', 'Menu'), 'icon' => 'fa fa-bars', 'url' => ['menu/index']],
 ];
 
 if(isset($this->params['actions'])){
