@@ -1,6 +1,8 @@
 <?php
     use yii\fluent\modules\admin\assets\AdminAsset;
     use yii\bootstrap\Html;
+    use yii\fluent\modules\admin\Module;
+    use yii\helpers\Url;
     // Including assets
     AdminAsset::register($this);
 ?>
@@ -47,11 +49,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
                     <li>
-                        <a href="#"><i class="fa fa-home"></i>&nbsp; Home</a>
+                        <a href="<?php echo Url::home() ?>"><i class="fa fa-home"></i>&nbsp; <?php echo Module::t('main', 'Site') ?></a>
                     </li><!-- /.messages-menu -->
 
                     <li>
-                        <a href="#"><i class="fa fa- fa-sign-out"></i>&nbsp; Log out</a>
+                        <a href="<?php echo Url::to(['/user/logout']) ?>"><i class="fa fa- fa-sign-out"></i>&nbsp; <?php echo Module::t('main', 'Log out') ?></a>
                     </li>
                 </ul>
             </div>
