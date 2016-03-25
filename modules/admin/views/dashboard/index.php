@@ -57,7 +57,7 @@ $this->params['title'] = $this->title;
                 <div class="info-box-text" style="margin-bottom: 10px;"><?php echo Module::t('main', 'Settings')  ?></div>
                 <div>
                     <a href="<?php echo Url::toRoute(['settings/index']) ?>"><i class="fa fa-list" style="width:20px"></i><?php echo Module::t('main', 'Manage') ?></a><br/>
-                    <a href="<?php echo Url::toRoute(['settings/index']) ?>"><i class="fa fa-plus" style="width:20px"></i><?php echo Module::t('main', 'Create') ?></a>
+                    <a href="<?php echo Url::toRoute(['settings/index']) ?>"><i class="fa fa-wrench" style="width:20px"></i><?php echo Module::t('main', 'Manage (advanced)') ?></a>
                 </div>
             </div>
         </div>

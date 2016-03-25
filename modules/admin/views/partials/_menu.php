@@ -9,6 +9,7 @@ $items = [
     ['label' => Module::t('main', 'Users'), 'icon' => 'fa fa-users', 'url' => ['user/index']],
     ['label' => Module::t('main', 'Blocks'), 'icon' => 'fa fa-th-large', 'url' => ['block/index']],
     ['label' => Module::t('main', 'Menu'), 'icon' => 'fa fa-bars', 'url' => ['menu/index']],
+    ['label' => Module::t('main', 'Settings'), 'icon' => 'fa fa-cog', 'url' => ['settings/simple']],
 ];
 
 if(isset($this->params['actions'])){
