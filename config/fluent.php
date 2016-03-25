@@ -27,7 +27,12 @@
                         ]
                     ]
                 ]
-            ]
+            ],
+
+            'thumbnail' => [
+                'class' => 'himiklab\thumbnail\EasyThumbnail',
+                'cacheAlias' => 'assets/thumbnails',
+            ],
         ],
 
         'modules' => [
