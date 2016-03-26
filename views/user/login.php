@@ -9,32 +9,33 @@ use yii\bootstrap\ActiveForm;
 $this->title = \Yii::t('fluent/user', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'enableClientValidation'=>false,
-        'options' => ['class' => 'form-horizontal'],
-        'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
-        ],
-    ]); ?>
+<div class="login-box">
+    <div class="login-logo">
+        <b>Admin</b> Panel
+    </div><!-- /.login-logo -->
+    <div class="login-box-body">
+        <?php $form = ActiveForm::begin([
+            'id' => 'login-form',
+            'enableClientValidation'=>false,
+            'options' => ['class' => 'form-horizontal'],
+            'fieldConfig' => [
+                'template' => "<div class=\"form-group has-feedback\">{input}\n{error}</div>",
+                'options' => ['class' => ''],
+            ],
+        ]); ?>
+            <?= $form->field($model, 'email')->textInput(['placeholder' => 'Email']) ?>
 
-        <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'password')->passwordInput(['placeholder' => \Yii::t('fluent/user', 'Password')]) ?>
 
-        <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'rememberMe', [
+                'template' => "<div class=\"col-lg-offset-2 col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                'options' => ['class' => 'form-group']
+            ])->checkbox() ?>
 
-        <?= $form->field($model, 'rememberMe', [
-            'template' => "<div class=\"col-lg-offset-2 col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-        ])->checkbox() ?>
-
-        <div class="form-group">
-            <div class="col-lg-offset-1 col-lg-11">
-                <?= Html::submitButton(\Yii::t('fluent/user', 'Sign in'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+            <div class="row">
+                <button type="submit" class="btn btn-primary btn-block btn-flat"><?php echo \Yii::t('fluent/user', 'Sign in') ?></button>
             </div>
-        </div>
-
-    <?php ActiveForm::end(); ?>
-</div>
+        <?php ActiveForm::end(); ?>
+    </div><!-- /.login-box-body -->
+</div><!-- /.login-box -->
