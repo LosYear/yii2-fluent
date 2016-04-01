@@ -49,7 +49,7 @@ class Setting extends \yii\db\ActiveRecord
 
     public static function get($key)
     {
-        $s = Setting::findOne(['key' => $key];
+        $s = Setting::findOne(['key' => $key]);
         return ($s != null)? $s->value : '';
     }
 }
