@@ -19,10 +19,10 @@ class PagesRule extends Object implements UrlRuleInterface{
     public function parseRequest($manager, $request)
     {
         $pathInfo = $request->getPathInfo();
-
+        $pathInfo = chop($pathInfo, $manager->suffix);
         if (preg_match('%^([\-\w]+)?$%', $pathInfo, $matches) && $pathInfo != '') {
             $model = Page::findOne(['slug' => $matches[1]]);
-
+            
             if($model !== null){
                 $_GET['id'] = $model->id;
 
