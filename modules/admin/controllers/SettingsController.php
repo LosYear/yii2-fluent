@@ -53,7 +53,7 @@ class SettingsController extends AdminController
 
     public function actionSimple($key = -1)
     {
-        $settings_list = explode(',', Setting::get('quick_settings')->value);
+        $settings_list = explode(',', Setting::get('quick_settings'));
 
         if($key != -1){
             $model = Setting::get($key);
