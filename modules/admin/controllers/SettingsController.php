@@ -56,7 +56,7 @@ class SettingsController extends AdminController
         $settings_list = explode(',', Setting::get('quick_settings'));
 
         if($key != -1){
-            $model = Setting::get($key);
+            $model = Setting::findOne(['key' => $key]);
             $model->load(Yii::$app->request->post());
             $model->save();
         }
