@@ -25,7 +25,8 @@
         "rmrevin/yii2-fontawesome": "~2.12",
         "2amigos/yii2-ckeditor-widget": "~1.0",
         "iutbay/yii2-kcfinder": "*",
-        "himiklab/yii2-easy-thumbnail-image-helper": "*"
+        "himiklab/yii2-easy-thumbnail-image-helper": "*",
+		"codemix/yii2-localeurls": "^1.4"
     },
 
     "autoload": {

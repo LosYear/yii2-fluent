@@ -8,6 +8,9 @@
             ],
 
             'urlManager' => [
+				'class' => \codemix\localeurls\UrlManager::className(),
+				'languages' => ['en', 'ru' => 'ru-RU'],
+				'enableLanguagePersistence' => false,
                 'rules' => [
                     [
                         'class' => 'yii\fluent\components\PagesRule',
