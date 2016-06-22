@@ -16,6 +16,11 @@ if(isset($this->params['actions'])){
     $items[] = ['label' => strtoupper(Module::t('main', 'Actions')), 'options' => ['class' => 'header']];
     $items = array_merge($items, $this->params['actions']);
 }
+
+if(isset($this->params['translations'])){
+    $items[] = ['label' => strtoupper(Module::t('main', 'Translations')), 'options' => ['class' => 'header']];
+    $items = array_merge($items, $this->params['translations']);
+}
 ?>
 
 <?= Menu::widget([

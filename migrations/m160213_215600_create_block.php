@@ -9,7 +9,7 @@ class m160213_215600_create_block extends Migration
     {
         $this->createTable(Block::tableName(), [
             'id' => $this->primaryKey(),
-            'name' => $this->string(200)->unique()->notNull(),
+            'name' => $this->string(200)->notNull(),
             'type' => $this->string(200)->notNull(),
             'title' => $this->string(200),
             'content' => $this->text()->notNull(),

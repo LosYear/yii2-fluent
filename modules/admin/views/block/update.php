@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\fluent\modules\admin\Module;
+use yii\fluent\modules\admin\components\helpers\TranslationsHelper;
 
 /* @var $this yii\web\View */
 /* @var $model \yii\fluent\models\Block */
@@ -19,6 +20,8 @@ $this->params['actions'] = [
     ['label' => Module::t('main', 'Manage'), 'icon' => 'fa fa-list', 'url' => ['index']],
     ['label' => Module::t('main', 'Create'), 'icon' => 'fa fa-pencil', 'url' => ['create']]
 ];
+
+$this->params['translations'] = TranslationsHelper::getUpdateItems($model, 'block')
 
 ?>
 

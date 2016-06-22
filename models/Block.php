@@ -3,6 +3,7 @@
 namespace yii\fluent\models;
 
 use Yii;
+use yii\fluent\components\Translationable;
 
 /**
  * This is the model class for table "fluent_block".
@@ -13,7 +14,7 @@ use Yii;
  * @property string $title
  * @property string $content
  */
-class Block extends \yii\db\ActiveRecord
+class Block extends Translationable
 {
 
     const TYPE_PLAIN = 'plain';
@@ -31,11 +32,19 @@ class Block extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
+        return array_merge(parent::rules(), [
             [['name', 'type', 'content'], 'required'],
             [['content'], 'string'],
             [['name', 'type', 'title'], 'string', 'max' => 200],
-            [['name'], 'unique'],
+            [['name'], 'unique', 'when' => function(){return !$this->isTranslation();}],
+        ]);
+    }
+
+
+    public function immutables()
+    {
+        return [
+          'name', 'type'
         ];
     }
 

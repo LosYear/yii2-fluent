@@ -4,6 +4,7 @@ namespace yii\fluent\widgets;
 
 use Yii;
 use yii\base\Widget;
+use yii\fluent\models\Language;
 
 
 class Block extends Widget
@@ -23,7 +24,7 @@ class Block extends Widget
     }
 
     private function loadBlock(){
-       $this->block = \yii\fluent\models\Block::findOne(['name' => $this->name]);
+       $this->block = \yii\fluent\models\Block::findOne(['name' => $this->name])->getTranslation(Language::getCurrentLangID(), false);
     }
 
 }

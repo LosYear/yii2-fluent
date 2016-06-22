@@ -4,6 +4,7 @@ namespace yii\fluent\modules\admin\controllers;
 
 use Yii;
 use yii\fluent\models\Block;
+use yii\fluent\models\Language;
 use yii\fluent\modules\admin\models\BlockSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -51,9 +52,16 @@ class BlockController extends AdminController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($source_id = -1, $lang_id = -1)
     {
+        if ($lang_id == -1){
+            $lang_id = Language::getDefaultID();
+        }
+
         $model = new Block();
+        
+        $model->source_id = $source_id;
+        $model->lang_id = $lang_id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);

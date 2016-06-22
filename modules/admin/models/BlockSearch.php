@@ -60,6 +60,7 @@ class BlockSearch extends Block
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'source_id' => -1,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

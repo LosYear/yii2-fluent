@@ -14,9 +14,15 @@ use yii\fluent\widgets\CKEditor;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true, 'readonly' => $model->isTranslation(), 'value' => $model->getSource()->name]) ?>
 
-    <?= $form->field($model, 'type')->dropDownList($model::types())?>
+    <?php if(!$model->isTranslation()): ?>
+        <?= $form->field($model, 'type')->dropDownList($model::types())?>
+    <?php else: ?>
+        <?= $form->field($model, 'type')->dropDownList([
+            $model->getSource()->type => $model::types()[$model->getSource()->type]
+        ], ['readonly' => true])?>
+    <?php endif; ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
