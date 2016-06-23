@@ -10,7 +10,7 @@ class m160319_170814_create_page extends Migration
         $this->createTable(Page::tableName(), [
             'id' => $this->primaryKey(),
             'title' => $this->string(200)->notNull(),
-            'slug' => $this->string(200)->notNull()->unique(),
+            'slug' => $this->string(200)->notNull(),
             'content' => $this->text()
         ]);
     }

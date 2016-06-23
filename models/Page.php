@@ -3,6 +3,7 @@
 namespace yii\fluent\models;
 
 use Yii;
+use yii\fluent\components\Translationable;
 
 /**
  * This is the model class for table "fluent_page".
@@ -12,7 +13,7 @@ use Yii;
  * @property string $slug
  * @property string $content
  */
-class Page extends \yii\db\ActiveRecord
+class Page extends Translationable
 {
     /**
      * @inheritdoc
@@ -20,6 +21,13 @@ class Page extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'fluent_page';
+    }
+
+    public function immutables()
+    {
+        return [
+            'slug'
+        ];
     }
 
     /**
@@ -31,7 +39,7 @@ class Page extends \yii\db\ActiveRecord
             [['title', 'slug'], 'required'],
             [['content'], 'string'],
             [['title', 'slug'], 'string', 'max' => 200],
-            [['slug'], 'unique'],
+            [['slug'], 'unique', 'when' => function(){return !$this->isTranslation();}],
         ];
     }
 

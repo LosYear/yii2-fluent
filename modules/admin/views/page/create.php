@@ -19,7 +19,7 @@ $this->params['actions'] = [
     ['label' => Module::t('main', 'Manage'), 'icon' => 'fa fa-list', 'url' => ['index']]
 ];
 
-
+$this->params['translations'] = \yii\fluent\modules\admin\components\helpers\TranslationsHelper::getCreateItems($model, 'page');
 
 ?>
 
