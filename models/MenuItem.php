@@ -3,6 +3,7 @@
 namespace yii\fluent\models;
 
 use Yii;
+use yii\fluent\components\Translationable;
 use yii\fluent\models\Menu;
 
 /**
@@ -13,8 +14,16 @@ use yii\fluent\models\Menu;
  * @property string $title
  * @property string $link
  */
-class MenuItem extends \yii\db\ActiveRecord
+class MenuItem extends Translationable
 {
+
+    public function immutables()
+    {
+        return [
+            'menu_id', 'root_id', 'order'
+        ];
+    }
+
     /**
      * @inheritdoc
      */

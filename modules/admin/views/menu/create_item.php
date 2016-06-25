@@ -22,7 +22,7 @@ $this->params['actions'] = [
 ];
 
 
-
+$this->params['translations'] = \yii\fluent\modules\admin\components\helpers\MenuTranslationsHelper::getCreateItems($model);
 ?>
 
 <?= $this->render('_item_form', [

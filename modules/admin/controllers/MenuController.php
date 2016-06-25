@@ -9,6 +9,7 @@ use yii\fluent\modules\admin\models\MenuSearch;
 use yii\helpers\Html;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\fluent\models\Language;
 
 /**
  * MenuController implements the CRUD actions for Menu model.
@@ -66,12 +67,18 @@ class MenuController extends AdminController
      * Creates a new item
      * @return mixed
      */
-    public function actionCreateItem($menu_id){
+    public function actionCreateItem($menu_id, $source_id = -1, $lang_id = -1){
+        if ($lang_id == -1){
+            $lang_id = Language::getDefaultID();
+        }
+
         $menu = $this->findModel($menu_id);
         $items = $menu->items;
 
         $model = new MenuItem();
         $model->menu_id = $menu_id;
+        $model->source_id = $source_id;
+        $model->lang_id = $lang_id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['items', 'id' => $menu->id]);
@@ -194,7 +201,7 @@ class MenuController extends AdminController
     private function generateItemsTree($menu_id, $root = -1){
         $result = [];
 
-        $items = MenuItem::find()->where(['root_id' => $root, 'menu_id' => $menu_id])->orderBy('order')->all();
+        $items = MenuItem::find()->where(['root_id' => $root, 'menu_id' => $menu_id, 'source_id' => -1])->orderBy('order')->all();
 
         foreach($items as $item){
             $result[] = ['label' => $item->title . ' ' . Html::a('<i class="fa fa-pencil"></i>', ['update-item', 'id' => $item->id]) . ' ' .

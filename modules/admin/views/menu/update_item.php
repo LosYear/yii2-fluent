@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\fluent\modules\admin\Module;
+use yii\fluent\modules\admin\components\helpers\MenuTranslationsHelper;
 
 
 /* @var $this yii\web\View */
@@ -22,7 +23,7 @@ $this->params['actions'] = [
     ['label' => Module::t('main', 'Create item'), 'icon' => 'fa fa-pencil', 'url' => ['create-item', 'menu_id' => $menu->id]]
 ];
 
-
+$this->params['translations'] = MenuTranslationsHelper::getUpdateItems($model);
 
 ?>
 

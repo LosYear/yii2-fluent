@@ -21,7 +21,7 @@ $this->params['actions'] = [
     ['label' => Module::t('main', 'Create'), 'icon' => 'fa fa-pencil', 'url' => ['create']]
 ];
 
-$this->params['translations'] = TranslationsHelper::getUpdateItems($model, 'page')
+$this->params['translations'] = TranslationsHelper::getUpdateItems($model, 'page');
 
 ?>
 
