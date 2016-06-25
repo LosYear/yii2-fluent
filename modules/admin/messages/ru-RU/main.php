@@ -30,5 +30,8 @@
         'Create' => 'Создать',
         'Update' => 'Изменить',
 
-        'Translations' => 'Переводы'
+        'Translations' => 'Переводы',
+        'Translation' => 'Перевод',
+
+        'Interface translations' => 'Переводы интерфейса',
     ];

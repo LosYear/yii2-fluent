@@ -28,6 +28,10 @@
                             'fluent/user' => 'user.php',
                             'fluent/models' => 'models.php'
                         ]
+                    ],
+                    'interface' => [
+                        'sourceLanguage' => 'en-US',
+                        'class' => \yii\fluent\components\DbMessageSource::className(),
                     ]
                 ]
             ],
