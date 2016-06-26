@@ -63,6 +63,7 @@ class Language extends \yii\db\ActiveRecord
     }
 
     public static function getDefault(){
+        // TODO: Add real caching
         if(!isset(Yii::$app->params['language']['default'])){
             Yii::$app->params['language']['default'] = Language::findOne(['lang_id' => Yii::$app->params['sourceLanguage']]);
         }
@@ -78,6 +79,7 @@ class Language extends \yii\db\ActiveRecord
     }
 
     public static function getCurrentLang(){
+        // TODO: Add real caching
         if(!isset(Yii::$app->params['language']['current'])){
             Yii::$app->params['language']['current'] = Language::find()->where(['lang_id' => Yii::$app->language])->one();
         }
