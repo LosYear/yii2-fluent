@@ -3,6 +3,7 @@
 namespace yii\fluent\components;
 
 
+use yii\db\Query;
 use yii\fluent\models\Message;
 use yii\fluent\models\Language;
 use yii\i18n\MessageSource;
@@ -12,22 +13,24 @@ class DbMessageSource extends MessageSource
     public $forceTranslation = true;
 
 
-    public function translate($category, $message, $language)
+    public function translate($category, $message, $language) 
     {
-        $lang_id = Language::find()->where(['lang_id' => $language])->one();;
+        $translation = (new Query())->from(Message::tableName())->leftJoin(Language::tableName(),'`'.Message::tableName(). '`.`lang_id` = `'.Language::tableName().'`.`id`')
+            ->where(['message' => $message, 'category' => $category, Language::tableName().'.lang_id' => $language])->one();
 
-        if($lang_id == null){
-            return false;
+        if ($translation === false){
+
+            $translation = (new Query())->from(Message::tableName())->leftJoin(Language::tableName(),'`'.Message::tableName(). '`.`lang_id` = `'.Language::tableName().'`.`id`')
+                ->where(['message' => $message, 'category' => $category, Language::tableName().'.lang_id' => Language::getDefaultCode()])->one();
+
+            if($translation === false){
+                return false;
+            }
+
+            return $translation['translation'];
         }
 
-        $translation = Message::find()->where(['message' => $message, 'lang_id' => $lang_id, 'category' => $category])->one();
-
-        if($translation == null){
-            return false;
-        }
-
-        return $translation->translation;
-
+        return $translation['translation'];
     }
 
 }

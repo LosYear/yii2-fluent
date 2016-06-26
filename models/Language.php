@@ -58,6 +58,10 @@ class Language extends \yii\db\ActiveRecord
         return $result;
     }
 
+    public static function getDefaultCode(){
+        return Yii::$app->params['sourceLanguage'];
+    }
+
     public static function getDefault(){
         return Language::findOne(['lang_id' => Yii::$app->params['sourceLanguage']]);
     }
