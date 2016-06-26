@@ -63,18 +63,28 @@ class Language extends \yii\db\ActiveRecord
     }
 
     public static function getDefault(){
-        return Language::findOne(['lang_id' => Yii::$app->params['sourceLanguage']]);
+        if(!isset(Yii::$app->params['language']['default'])){
+            Yii::$app->params['language']['default'] = Language::findOne(['lang_id' => Yii::$app->params['sourceLanguage']]);
+        }
+        return Yii::$app->params['language']['default'];
     }
 
     public static function getDefaultID(){
-        return Language::findOne(['lang_id' => Yii::$app->params['sourceLanguage']])->id;
+        return Language::getDefault()->id;
     }
 
     public static function getLangs(){
         return Language::find()->all();
     }
 
+    public static function getCurrentLang(){
+        if(!isset(Yii::$app->params['language']['current'])){
+            Yii::$app->params['language']['current'] = Language::find()->where(['lang_id' => Yii::$app->language])->one();
+        }
+        return Yii::$app->params['language']['current'];
+    }
+
     public static function getCurrentLangID(){
-        return Language::find()->where(['lang_id' => Yii::$app->language])->one()->id;
+        return Language::getCurrentLang()->id;
     }
 }
